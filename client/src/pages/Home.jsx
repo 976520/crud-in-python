@@ -45,13 +45,18 @@ function Home() {
     fetchBoard();
   };
 
+  const handleDelete = async (title) => {
+    await axios.delete(`${API_URL}/delete`, { data: { title } });
+    fetchBoard();
+  };
+
   return (
     <Container>
       <Title>나도 이제 백엔드?</Title>
       <h4>add</h4>
       <Form title={title} setTitle={setTitle} context={context} setContext={setContext} handleSubmit={handleSubmit} />
       <h4>view</h4>
-      <BoardTable board={board} />
+      <BoardTable board={board} onDelete={handleDelete} />
     </Container>
   );
 }
