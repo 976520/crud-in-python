@@ -4,13 +4,13 @@ function Header() {
   return (
     <nav>
       <Link to="/home">
-        <button>Home</button>
+        <img src="../assets/Home.svg" alt="Home" />
       </Link>
       <Link to="/add">
-        <button>Add</button>
+        <img src="../assets/Pencil.svg" alt="Add" />
       </Link>
       <Link to="/view">
-        <button>View</button>
+        <img src="../assets/List.svg" alt="View" />
       </Link>
     </nav>
   );

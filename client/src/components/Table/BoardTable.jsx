@@ -18,7 +18,12 @@ const BoardTable = ({ board, onDelete }) => (
           <TableCell>{row[0]}</TableCell>
           <TableCell>{row[1]}</TableCell>
           <TableCell>
-            <button onClick={() => onDelete(row[0])}>Delete</button>
+            <img
+              onClick={() => onDelete(row[0])}
+              src="../../assets/Delete.svg"
+              alt="Delete"
+              style={{ width: "20px", height: "20px" }}
+            />
           </TableCell>
         </tr>
       ))}
