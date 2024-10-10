@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Form from "../components/Form/Form";
 import BoardTable from "../components/Table/BoardTable";
 
+const API_URL = "http://localhost:5000/api";
+
 const Container = styled.div`
   text-align: center;
   background: #e0e0e0;
@@ -28,13 +30,13 @@ function Home() {
   }, []);
 
   const fetchBoard = async () => {
-    const response = await axios.get("http://localhost:5000/api/board");
+    const response = await axios.get(`${API_URL}/board`);
     setBoard(response.data);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/add", { title, context });
+    await axios.post(`${API_URL}/add`, { title, context });
     setTitle("");
     setContext("");
     fetchBoard();
