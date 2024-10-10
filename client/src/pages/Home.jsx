@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Container, Title } from "./Style";
+import Header from "../components/Header";
 
 function Home() {
   return (

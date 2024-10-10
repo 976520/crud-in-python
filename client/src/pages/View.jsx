@@ -2,7 +2,7 @@ import React from "react";
 import useBoard from "../hooks/useBoard";
 import BoardTable from "../components/Table/BoardTable";
 import { Container, Title } from "./Style";
-import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 function View() {
   const { board, handleDelete } = useBoard();
