@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
-import axios from "axios";
+import React from "react";
+import useBoard from "../hooks/useBoard";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
 import BoardTable from "../components/Table/BoardTable";
-
-const API_URL = "http://localhost:5000/api";
 
 const Container = styled.div`
   text-align: center;
@@ -21,34 +19,7 @@ const Title = styled.h1`
 `;
 
 function Home() {
-  const [board, setBoard] = useState([]);
-  const [title, setTitle] = useState("");
-  const [context, setContext] = useState("");
-
-  const fetchBoard = useCallback(async () => {
-    const response = await axios.get(`${API_URL}/board`);
-    setBoard(response.data);
-  }, []);
-
-  useEffect(() => {
-    fetchBoard();
-  }, [fetchBoard]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!title.trim() || !context.trim()) {
-      return;
-    }
-    await axios.post(`${API_URL}/add`, { title, context });
-    setTitle("");
-    setContext("");
-    fetchBoard();
-  };
-
-  const handleDelete = async (title) => {
-    await axios.delete(`${API_URL}/delete`, { data: { title } });
-    fetchBoard();
-  };
+  const { board, title, setTitle, context, setContext, handleSubmit, handleDelete } = useBoard();
 
   return (
     <Container>
