@@ -22,6 +22,13 @@ def add():
     board.append([request.json['title'], request.json['context']])  
     return jsonify(success=True), 201  
 
+@app.route('/api/delete', methods=['DELETE'])
+def delete():
+    title = request.json['title']
+    global board
+    board = [item for item in board if item[0] != title] 
+    return jsonify(success=True), 200
+
 @app.route('/<path:path>')
 def send_static(path):
     return send_from_directory(app.static_folder, path)
