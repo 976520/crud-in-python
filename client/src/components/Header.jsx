@@ -4,7 +4,7 @@ import ViewIcon from "../assets/ViewIcon";
 import HomeIcon from "../assets/HomeIcon";
 import AddIcon from "../assets/AddIcon";
 
-const Nav = styled.nav`
+const Navigation = styled.nav`
   display: flex;
   justify-content: center;
 `;
@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
 
 function Header() {
   return (
-    <Nav>
+    <Navigation>
       <StyledLink to="/home">
         <HomeIcon />
       </StyledLink>
@@ -26,7 +26,7 @@ function Header() {
       <StyledLink to="/view">
         <ViewIcon />
       </StyledLink>
-    </Nav>
+    </Navigation>
   );
 }
 

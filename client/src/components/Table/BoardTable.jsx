@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, TableHeader, TableCell } from "./Style";
+import DeleteIcon from "../../assets/DeleteIcon";
+import HeartIcon from "../../assets/HeartIcon";
 
 const BoardTable = ({ board, onDelete }) => (
   <Table>
@@ -8,7 +10,8 @@ const BoardTable = ({ board, onDelete }) => (
         <TableHeader width="5%">No.</TableHeader>
         <TableHeader width="15%">Title</TableHeader>
         <TableHeader width="35%">Context</TableHeader>
-        <TableHeader width="10%"></TableHeader>
+        <TableHeader width="5%">Del</TableHeader>
+        <TableHeader width="5%">Like</TableHeader>
       </tr>
     </thead>
     <tbody>
@@ -17,13 +20,11 @@ const BoardTable = ({ board, onDelete }) => (
           <TableCell>{index + 1}</TableCell>
           <TableCell>{row[0]}</TableCell>
           <TableCell>{row[1]}</TableCell>
-          <TableCell>
-            <img
-              onClick={() => onDelete(row[0])}
-              src="../../assets/Delete.svg"
-              alt="Delete"
-              style={{ width: "20px", height: "20px" }}
-            />
+          <TableCell onClick={() => onDelete(row[0])} style={{ cursor: "pointer" }}>
+            <DeleteIcon />
+          </TableCell>
+          <TableCell style={{ cursor: "pointer" }}>
+            <HeartIcon />
           </TableCell>
         </tr>
       ))}
