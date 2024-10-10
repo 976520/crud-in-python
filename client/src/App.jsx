@@ -26,6 +26,10 @@ const Input = styled.input`
   border: none;
   border-radius: 10px;
   box-shadow: inset 4px 4px 8px #b0b0b0, inset -4px -4px 8px #ffffff;
+
+  &:hover {
+    cursor: pointer; // Change cursor to pointer on hover
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -37,7 +41,8 @@ const TextArea = styled.textarea`
 `;
 
 const Table = styled.table`
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 12px;
   width: 600px;
   margin: 0 auto;
   word-break: break-all;
@@ -91,8 +96,10 @@ function App() {
         <Input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
         <p>context</p>
         <TextArea value={context} onChange={(e) => setContext(e.target.value)}></TextArea>
+        <br />
         <Input type="submit" value="submit" />
       </Form>
+
       <h4>view</h4>
       <Table>
         <thead>
