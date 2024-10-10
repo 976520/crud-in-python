@@ -9,17 +9,7 @@ function View() {
 
   return (
     <Container>
-      <div>
-        <Link to="/home">
-          <button>Home</button>
-        </Link>
-        <Link to="/add">
-          <button>Add</button>
-        </Link>
-        <Link to="/view">
-          <button>View</button>
-        </Link>
-      </div>
+      <Header />
       <Title>게시물 조회</Title>
       <BoardTable board={board} onDelete={handleDelete} />
     </Container>
