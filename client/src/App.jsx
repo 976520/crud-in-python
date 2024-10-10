@@ -4,10 +4,16 @@ import styled from "styled-components";
 
 const Container = styled.div`
   text-align: center;
+  background: #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px #b0b0b0, -8px -8px 16px #ffffff;
+  padding: 20px;
 `;
 
 const Title = styled.h1`
   font-size: 2rem;
+  color: #333;
+  text-shadow: 1px 1px 2px #fff;
 `;
 
 const Form = styled.form`
@@ -16,10 +22,18 @@ const Form = styled.form`
 
 const Input = styled.input`
   margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 4px 4px 8px #b0b0b0, inset -4px -4px 8px #ffffff;
 `;
 
 const TextArea = styled.textarea`
   margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 4px 4px 8px #b0b0b0, inset -4px -4px 8px #ffffff;
 `;
 
 const Table = styled.table`
@@ -31,13 +45,19 @@ const Table = styled.table`
 `;
 
 const TableHeader = styled.th`
-  border: 1px solid #000;
+  border: none;
   padding: 8px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px #b0b0b0, -4px -4px 8px #ffffff;
 `;
 
 const TableCell = styled.td`
-  border: 1px solid #000;
+  border: none;
   padding: 8px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px #b0b0b0, -4px -4px 8px #ffffff;
 `;
 
 function App() {
