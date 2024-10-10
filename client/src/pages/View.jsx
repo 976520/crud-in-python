@@ -1,8 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import useBoard from "../hooks/useBoard";
+import BoardTable from "../components/Table/BoardTable";
 import { Container, Title } from "./Style";
+import { Link } from "react-router-dom";
 
-function Home() {
+function View() {
+  const { board, handleDelete } = useBoard();
+
   return (
     <Container>
       <div>
@@ -16,9 +20,10 @@ function Home() {
           <button>View</button>
         </Link>
       </div>
-      <Title>나도 이제 백엔드?</Title>
+      <Title>게시물 조회</Title>
+      <BoardTable board={board} onDelete={handleDelete} />
     </Container>
   );
 }
 
-export default Home;
+export default View;
