@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
@@ -25,14 +25,14 @@ function Home() {
   const [title, setTitle] = useState("");
   const [context, setContext] = useState("");
 
-  useEffect(() => {
-    fetchBoard();
-  }, []);
-
-  const fetchBoard = async () => {
+  const fetchBoard = useCallback(async () => {
     const response = await axios.get(`${API_URL}/board`);
     setBoard(response.data);
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchBoard();
+  }, [fetchBoard]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
