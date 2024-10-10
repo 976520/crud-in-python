@@ -36,6 +36,9 @@ function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!title.trim() || !context.trim()) {
+      return;
+    }
     await axios.post(`${API_URL}/add`, { title, context });
     setTitle("");
     setContext("");
