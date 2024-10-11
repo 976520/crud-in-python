@@ -45,8 +45,8 @@ function SignIn() {
       <Header />
       <Title>로그인</Title>
       <form onSubmit={handleSubmit}>
-        {" "}
         <Input type="email" placeholder="이메일" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <br />
         <Input
           type="password"
           placeholder="비밀번호"
@@ -54,9 +54,11 @@ function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        <br />
         <button type="submit">로그인</button>
       </form>
-      <a href="http://localhost:3002/sign-up">회원가입</a>
+      <br />
+      <button onClick={() => (window.location.href = "/sign-up")}>회원가입</button>
     </Container>
   );
 }

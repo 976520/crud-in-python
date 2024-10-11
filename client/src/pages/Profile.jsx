@@ -12,11 +12,17 @@ function Profile() {
     }
   }, [navigate]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("user-id");
+    navigate("/sign-in");
+  };
+
   return (
     <Container>
       <Header />
       <Title>프로필</Title>
       <p>email : {localStorage.getItem("user-id")}</p>
+      <button onClick={handleLogout}>로그아웃</button>
     </Container>
   );
 }
