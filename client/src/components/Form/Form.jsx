@@ -1,5 +1,6 @@
 import React from "react";
-import { Input, TextArea } from "./Style";
+import TextArea from "./TextArea";
+import Input from "./Input";
 
 const Form = ({ title, setTitle, context, setContext, handleSubmit }) => (
   <form onSubmit={handleSubmit}>
