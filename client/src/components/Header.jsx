@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ViewIcon from "../assets/ViewIcon";
 import HomeIcon from "../assets/HomeIcon";
 import AddIcon from "../assets/AddIcon";
-import SignInIcon from "../assets/SignInIcon";
+import UserIcon from "../assets/UserIcon";
 
 const Navigation = styled.nav`
   display: flex;
@@ -27,8 +27,8 @@ function Header() {
       <StyledLink to="/view">
         <ViewIcon />
       </StyledLink>
-      <StyledLink to="/sign-in">
-        <SignInIcon />
+      <StyledLink to="/profile">
+        <UserIcon />
       </StyledLink>
     </Navigation>
   );
