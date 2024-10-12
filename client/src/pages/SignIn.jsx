@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import { Container, Title } from "./Style";
 import Header from "../components/Header";
-import styled from "styled-components";
-
-export const Input = styled.input`
-  margin: 5px 0;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: inset 4px 4px 8px #b0b0b0, inset -4px -4px 8px #ffffff;
-`;
+import Input from "../components/Form/Input";
 
 const API_URL = "http://localhost:5000/api";
 
@@ -45,17 +37,13 @@ function SignIn() {
       <Header />
       <Title>로그인</Title>
       <form onSubmit={handleSubmit}>
-        <Input type="email" placeholder="이메일" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <p>email</p>
+        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <br />
-        <Input
-          type="password"
-          placeholder="비밀번호"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <p>password</p>
+        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <br />
-        <button type="submit">로그인</button>
+        <Input id="submit" type="submit" value="로그인" />
       </form>
       <br />
       <button onClick={() => (window.location.href = "/sign-up")}>회원가입</button>

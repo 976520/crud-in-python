@@ -2,7 +2,7 @@ import React from "react";
 import TextArea from "./TextArea";
 import Input from "./Input";
 
-const Form = ({ title, setTitle, context, setContext, handleSubmit }) => (
+const BoardForm = ({ title, setTitle, context, setContext, handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <p>title</p>
     <Input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -13,4 +13,4 @@ const Form = ({ title, setTitle, context, setContext, handleSubmit }) => (
   </form>
 );
 
-export default Form;
+export default BoardForm;

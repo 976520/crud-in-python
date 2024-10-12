@@ -1,6 +1,6 @@
 import React from "react";
 import useBoard from "../hooks/useBoard";
-import Form from "../components/Form/Form";
+import BoardForm from "../components/Form/BoardForm";
 import { Container, Title } from "./Style";
 import Header from "../components/Header";
 
@@ -11,7 +11,13 @@ function Add() {
     <Container>
       <Header />
       <Title>게시물 추가</Title>
-      <Form title={title} setTitle={setTitle} context={context} setContext={setContext} handleSubmit={handleSubmit} />
+      <BoardForm
+        title={title}
+        setTitle={setTitle}
+        context={context}
+        setContext={setContext}
+        handleSubmit={handleSubmit}
+      />
     </Container>
   );
 }
