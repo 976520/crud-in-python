@@ -3,7 +3,7 @@ import { Container, Title } from "./Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "http://localhost:3002/api";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch(`${API_URL}/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

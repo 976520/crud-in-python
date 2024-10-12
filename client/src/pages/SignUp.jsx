@@ -3,7 +3,7 @@ import { Container, Title } from "./Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "http://localhost:3002/api";
 
 function SignUp() {
   const [email, setEmail] = useState("");

@@ -40,8 +40,8 @@ users = {
     "user@example.com": generate_password_hash("password123")
 }
 
-@app.route('/api/login', methods=['POST'])
-def login():
+@app.route('/api/signin', methods=['POST'])
+def signin():
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
