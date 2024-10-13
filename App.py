@@ -62,5 +62,7 @@ def signup():
     users[email] = generate_password_hash(password) 
     return jsonify({"success": True, "message": "회원가입 성공"}), 201
 
+
 if __name__ == '__main__':
     app.run(debug=True, port=3002)
+
