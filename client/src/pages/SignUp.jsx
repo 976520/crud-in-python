@@ -2,26 +2,37 @@ import React, { useState } from "react";
 import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
-import { signUpService } from "../services/SignUpService";
+import { authService } from "../services/AuthService";
 
 function SignUp() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== passwordConfirm) {
+    if (formData.password !== formData.passwordConfirm) {
       setError("비밀번호가 일치하지 않습니다.");
       return;
     }
 
     setError("");
     try {
-      const data = await signUpService({ email, password });
+      const data = await authService(formData, "signup");
       setMessage(data.message);
     } catch (error) {
       setError("회원가입 중 오류가 발생했습니다.");
@@ -34,21 +45,23 @@ function SignUp() {
       <Title>회원가입</Title>
       <form onSubmit={handleSubmit}>
         <p>email</p>
-        <Input type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <Input type="email" name="email" placeholder="email" value={formData.email} onChange={handleChange} required />
         <p>password</p>
         <Input
           type="password"
+          name="password"
           placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={formData.password}
+          onChange={handleChange}
           required
         />
         <p>confirm password</p>
         <Input
           type="password"
+          name="passwordConfirm"
           placeholder="confirm password"
-          value={passwordConfirm}
-          onChange={(e) => setPasswordConfirm(e.target.value)}
+          value={formData.passwordConfirm}
+          onChange={handleChange}
           required
         />
         {error && <p style={{ color: "red" }}>{error}</p>}

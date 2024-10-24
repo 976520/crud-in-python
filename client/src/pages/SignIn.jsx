@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
-import { signInService } from "../services/SignInService";
+import { authService } from "../services/AuthService";
 
 function SignIn() {
   const [formData, setFormData] = useState({
@@ -21,8 +21,9 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const data = await signInService(formData);
+      const data = await authService(formData, "signin");
       if (data.success) {
         alert("로그인 성공");
         localStorage.setItem("user-id", formData.email);
@@ -41,10 +42,17 @@ function SignIn() {
       <Title>로그인</Title>
       <form onSubmit={handleSubmit}>
         <p>email</p>
-        <Input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        <Input type="email" name="email" placeholder="email" value={formData.email} onChange={handleChange} required />
         <br />
         <p>password</p>
-        <Input type="password" name="password" value={formData.password} onChange={handleChange} required />
+        <Input
+          type="password"
+          name="password"
+          placeholder="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
         <br />
         <Input id="submit" type="submit" value="로그인" />
       </form>
