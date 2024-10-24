@@ -13,9 +13,13 @@ def signin():
     email = data.get('email')
     password = data.get('password')
 
-    if email in users and check_password_hash(users[email], password):
-        return jsonify({"success": True, "message": "로그인 성공"}), 200
-    return jsonify({"success": False, "message": "로그인 실패"}), 401
+    if email not in users:
+        return jsonify({"success": False, "message": "이메일이 존재하지 않습니다."}), 401
+
+    if not check_password_hash(users[email], password):
+        return jsonify({"success": False, "message": "비밀번호가 틀렸습니다."}), 401
+
+    return jsonify({"success": True, "message": "로그인 성공"}), 200
 
 @auth_bp.route('/api/signup', methods=['POST'])  
 def signup():

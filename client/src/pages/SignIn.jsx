@@ -10,6 +10,7 @@ function SignIn() {
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +36,10 @@ function SignIn() {
         localStorage.setItem("user-id", formData.email);
         window.location.href = "/home";
       } else {
-        alert("로그인 실패");
+        setErrorMessage(data.message || "로그인 실패");
       }
     } catch (error) {
-      console.error("Error during fetch:", error);
+      setErrorMessage("로그인 중 오류가 발생했습니다.");
     }
   };
 
@@ -55,6 +56,7 @@ function SignIn() {
         <br />
         <Input id="submit" type="submit" value="로그인" />
       </form>
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       <br />
       <button onClick={() => (window.location.href = "/sign-up")}>회원가입</button>
     </Container>
