@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
-import { signIn } from "../services/SignInService";
+import { signInService } from "../services/SignInService";
 
 function SignIn() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await signIn(formData);
+      const data = await signInService(formData);
       if (data.success) {
         alert("로그인 성공");
         localStorage.setItem("user-id", formData.email);
