@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
-
-const API_URL = "http://localhost:5000/api";
+import { signUpService } from "../services/SignUpService";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -21,16 +20,12 @@ function SignUp() {
     }
 
     setError("");
-    const response = await fetch(`${API_URL}/signup`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await response.json();
-    setMessage(data.message);
+    try {
+      const data = await signUpService({ email, password });
+      setMessage(data.message);
+    } catch (error) {
+      setError("회원가입 중 오류가 발생했습니다.");
+    }
   };
 
   return (
