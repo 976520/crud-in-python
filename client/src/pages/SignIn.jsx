@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
-
-const API_URL = "http://localhost:5000/api";
+import { signIn } from "../services/SignInService";
 
 function SignIn() {
   const [formData, setFormData] = useState({
@@ -23,14 +22,7 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_URL}/signin`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
+      const data = await signIn(formData);
       if (data.success) {
         alert("로그인 성공");
         localStorage.setItem("user-id", formData.email);
