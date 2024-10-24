@@ -1,7 +1,7 @@
 import React from "react";
 import useBoard from "../hooks/useBoard";
 import BoardForm from "../components/Form/BoardForm";
-import { Container, Title } from "./Style";
+import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 
 function Add() {

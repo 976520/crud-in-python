@@ -1,7 +1,7 @@
 import React from "react";
 import useBoard from "../hooks/useBoard";
 import BoardTable from "../components/Table/BoardTable";
-import { Container, Title } from "./Style";
+import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 
 function View() {

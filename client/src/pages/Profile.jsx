@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Title } from "./Style";
+import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 
 function Profile() {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Container, Title } from "./Style";
+import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 import Input from "../components/Form/Input";
 
-const API_URL = "http://localhost:3002/api";
+const API_URL = "http://localhost:5000/api";
 
 function SignIn() {
   const [formData, setFormData] = useState({

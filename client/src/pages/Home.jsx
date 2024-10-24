@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Title } from "./Style";
+import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 
 function Home() {
