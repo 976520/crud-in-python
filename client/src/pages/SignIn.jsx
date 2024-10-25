@@ -32,7 +32,7 @@ function SignIn() {
         setErrorMessage(data.message);
       }
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(error.response.data.message);
     }
   };
 

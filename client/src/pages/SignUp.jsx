@@ -40,7 +40,7 @@ function SignUp() {
         setMessage(data.message);
       }
     } catch (error) {
-      setMessage(error.message);
+      setMessage(error.response.data.message);
     }
   };
 
