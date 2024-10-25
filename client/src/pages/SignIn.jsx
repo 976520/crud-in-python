@@ -32,7 +32,7 @@ function SignIn() {
         setErrorMessage(data.message);
       }
     } catch (error) {
-      setErrorMessage("로그인 중 오류가 발생했습니다.");
+      setErrorMessage(error.message);
     }
   };
 

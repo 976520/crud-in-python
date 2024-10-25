@@ -5,14 +5,13 @@ import Input from "../components/Form/Input";
 import { authService } from "../services/AuthService";
 
 function SignUp() {
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    passwordConfirm: "",
   });
+
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,17 +24,23 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.password !== formData.passwordConfirm) {
-      setError("비밀번호가 일치하지 않습니다.");
+    if (formData.password !== passwordConfirm) {
+      setMessage("비밀번호가 일치하지 않습니다.");
       return;
     }
 
-    setError("");
+    setMessage("");
+
     try {
       const data = await authService(formData, "signup");
-      setMessage(data.message);
+      if (data.success) {
+        alert("회원가입 성공");
+        window.location.href = "/signin";
+      } else {
+        setMessage(data.message);
+      }
     } catch (error) {
-      setError("회원가입 중 오류가 발생했습니다.");
+      setMessage(error.message);
     }
   };
 
@@ -60,15 +65,14 @@ function SignUp() {
           type="password"
           name="passwordConfirm"
           placeholder="confirm password"
-          value={formData.passwordConfirm}
-          onChange={handleChange}
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
           required
         />
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {message && <p style={{ color: "red" }}>{message}</p>}
         <br />
         <Input id="submit" type="submit" value="가입" />
       </form>
-      {message && <p>{message}</p>}
     </Container>
   );
 }
