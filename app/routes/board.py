@@ -22,5 +22,9 @@ def add_board_entry():
 def delete_board_entry():
     title = request.json.get('title')
     global board
-    board = [item for item in board if item['title'] != title]  
+    new_board = []
+    for item in board:
+        if item['title'] != title:
+            new_board.append(item)
+    board = new_board
     return jsonify(success=True), 200

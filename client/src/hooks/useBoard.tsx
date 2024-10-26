@@ -13,6 +13,7 @@ const useBoard = () => {
   const [board, setBoard] = useState<Board[]>([]);
   const [title, setTitle] = useState<string>("");
   const [context, setContext] = useState<string>("");
+  const [writer, setWriter] = useState<string>("");
 
   const fetchBoard = useCallback(async () => {
     const response = await axios.get<Board[]>(`${API_URL}/board`);
@@ -25,12 +26,11 @@ const useBoard = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!title.trim() || !context.trim()) {
-      return;
-    }
-    await axios.post<Board>(`${API_URL}/add`, { title, context });
+
+    await axios.post<Board>(`${API_URL}/add`, { title, context, writer });
     setTitle("");
     setContext("");
+    setWriter("");
     fetchBoard();
   };
 
@@ -39,7 +39,7 @@ const useBoard = () => {
     fetchBoard();
   };
 
-  return { board, title, setTitle, context, setContext, handleSubmit, handleDelete };
+  return { board, title, setTitle, context, setContext, writer, setWriter, handleSubmit, handleDelete };
 };
 
 export default useBoard;
