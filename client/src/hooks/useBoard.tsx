@@ -6,6 +6,7 @@ const API_URL = "http://localhost:5000/api";
 interface Board {
   title: string;
   context: string;
+  writer: string;
 }
 
 const useBoard = () => {

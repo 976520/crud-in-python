@@ -6,6 +6,7 @@ import HeartIcon from "../../assets/HeartIcon.tsx";
 interface Board {
   title: string;
   context: string;
+  writer: string;
 }
 
 interface BoardTableProps {
@@ -29,7 +30,7 @@ const BoardTable: React.FC<BoardTableProps> = ({ board, onDelete }) => (
       {board.map((row, index) => (
         <tr key={index}>
           <TableCell>{index + 1}</TableCell>
-          <TableCell>{localStorage.getItem("user-id")}</TableCell>
+          <TableCell>{row.writer}</TableCell>
           <TableCell>{row.title}</TableCell>
           <TableCell>{row.context}</TableCell>
           <TableCell onClick={() => onDelete(row.title)} style={{ cursor: "pointer" }}>

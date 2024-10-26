@@ -11,12 +11,16 @@ def get_board():
 @board_bp.route('/api/add', methods=['POST'])
 def add_board_entry():
     data = request.json
-    board.append([data.get('title'), data.get('context'), data.get('writer')])
+    board.append({
+        'title': data.get('title'),
+        'context': data.get('context'),
+        'writer': data.get('writer') 
+    })
     return jsonify(success=True), 201
 
 @board_bp.route('/api/delete', methods=['DELETE'])
 def delete_board_entry():
     title = request.json.get('title')
     global board
-    board = [item for item in board if item[0] != title]
+    board = [item for item in board if item['title'] != title]  
     return jsonify(success=True), 200
