@@ -1,6 +1,6 @@
 import React from "react";
-import TextArea from "./TextArea";
-import Input from "./Input";
+import TextArea from "./TextArea.tsx";
+import Input from "./Input.tsx";
 
 const BoardForm = ({ title, setTitle, context, setContext, handleSubmit }) => (
   <form onSubmit={handleSubmit}>

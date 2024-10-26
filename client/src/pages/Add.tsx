@@ -1,10 +1,10 @@
 import React from "react";
-import useBoard from "../hooks/useBoard";
-import BoardForm from "../components/Form/BoardForm";
-import { Container, Title } from "../style/Style";
-import Header from "../components/Header";
+import useBoard from "../hooks/useBoard.tsx";
+import BoardForm from "../components/Form/BoardForm.tsx";
+import { Container, Title } from "../style/Style.tsx";
+import Header from "../components/Header.tsx";
 
-function Add() {
+const Add: React.FC = () => {
   const { title, setTitle, context, setContext, handleSubmit } = useBoard();
 
   return (
@@ -20,6 +20,6 @@ function Add() {
       />
     </Container>
   );
-}
+};
 
 export default Add;

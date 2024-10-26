@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Container, Title } from "../style/Style";
-import Header from "../components/Header";
-import Input from "../components/Form/Input";
-import { authService } from "../services/AuthService";
+import { Container, Title } from "../style/Style.tsx";
+import Header from "../components/Header.tsx";
+import Input from "../components/Form/Input.tsx";
+import { authService } from "../services/AuthService.tsx";
 
-function SignIn() {
+const SignIn: React.FC = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -61,6 +61,6 @@ function SignIn() {
       <button onClick={() => (window.location.href = "/sign-up")}>회원가입</button>
     </Container>
   );
-}
+};
 
 export default SignIn;

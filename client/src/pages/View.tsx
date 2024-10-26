@@ -1,10 +1,10 @@
 import React from "react";
-import useBoard from "../hooks/useBoard";
-import BoardTable from "../components/Table/BoardTable";
-import { Container, Title } from "../style/Style";
-import Header from "../components/Header";
+import useBoard from "../hooks/useBoard.tsx";
+import BoardTable from "../components/Table/BoardTable.tsx";
+import { Container, Title } from "../style/Style.tsx";
+import Header from "../components/Header.tsx";
 
-function View() {
+const View: React.FC = () => {
   const { board, handleDelete } = useBoard();
 
   return (
@@ -14,6 +14,6 @@ function View() {
       <BoardTable board={board} onDelete={handleDelete} />
     </Container>
   );
-}
+};
 
 export default View;

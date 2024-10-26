@@ -1,10 +1,11 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Add from "./pages/Add";
-import View from "./pages/View";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Profile from "./pages/Profile";
+import Home from "./pages/Home.tsx";
+import Add from "./pages/Add.tsx";
+import View from "./pages/View.tsx";
+import SignIn from "./pages/SignIn.tsx";
+import SignUp from "./pages/SignUp.tsx";
+import Profile from "./pages/Profile.tsx";
 
 function App() {
   return (
