@@ -7,6 +7,7 @@ users = {
     "user@example.com": generate_password_hash("password123")
 }
 
+
 @auth_bp.route('/api/signin', methods=['POST'])
 def signin():
     data = request.get_json()
