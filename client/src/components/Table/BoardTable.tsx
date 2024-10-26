@@ -17,12 +17,12 @@ const BoardTable: React.FC<BoardTableProps> = ({ board, onDelete }) => (
   <Table>
     <thead>
       <tr>
-        <TableHeader>No.</TableHeader>
-        <TableHeader>Writer</TableHeader>
-        <TableHeader>Title</TableHeader>
-        <TableHeader>Context</TableHeader>
-        <TableHeader>Del</TableHeader>
-        <TableHeader>Like</TableHeader>
+        <TableHeader style={{ width: "5%" }}>No.</TableHeader>
+        <TableHeader style={{ width: "10%" }}>Writer</TableHeader>
+        <TableHeader style={{ width: "20%" }}>Title</TableHeader>
+        <TableHeader style={{ width: "55%" }}>Context</TableHeader>
+        <TableHeader style={{ width: "5%" }}>Del</TableHeader>
+        <TableHeader style={{ width: "5%" }}>Like</TableHeader>
       </tr>
     </thead>
     <tbody>
