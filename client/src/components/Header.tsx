@@ -1,9 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import ViewIcon from "../assets/ViewIcon";
-import HomeIcon from "../assets/HomeIcon";
-import AddIcon from "../assets/AddIcon";
-import UserIcon from "../assets/UserIcon";
+import ViewIcon from "../assets/ViewIcon.tsx";
+import HomeIcon from "../assets/HomeIcon.tsx";
+import AddIcon from "../assets/AddIcon.tsx";
+import UserIcon from "../assets/UserIcon.tsx";
 
 const Navigation = styled.nav`
   display: flex;
