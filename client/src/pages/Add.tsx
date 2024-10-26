@@ -4,7 +4,7 @@ import BoardForm from "../components/Form/BoardForm";
 import { Container, Title } from "../style/Style";
 import Header from "../components/Header";
 
-function Add() {
+const Add: React.FC = () => {
   const { title, setTitle, context, setContext, handleSubmit } = useBoard();
 
   return (
@@ -20,6 +20,6 @@ function Add() {
       />
     </Container>
   );
-}
+};
 
 export default Add;
