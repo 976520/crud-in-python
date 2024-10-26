@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, TableHeader, TableCell } from "./Style";
+import { Table, TableHeader, TableCell } from "./Style.tsx";
 import DeleteIcon from "../../assets/DeleteIcon";
 import HeartIcon from "../../assets/HeartIcon";
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Title } from "../style/Style";
-import Header from "../components/Header";
+import { Container, Title } from "../style/Style.tsx";
+import Header from "../components/Header.tsx";
 
 const Home: React.FC = () => {
   return (

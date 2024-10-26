@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Title } from "../style/Style";
-import Header from "../components/Header";
+import { Container, Title } from "../style/Style.tsx";
+import Header from "../components/Header.tsx";
 
-function Profile() {
+const Profile: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +25,6 @@ function Profile() {
       <button onClick={handleLogout}>로그아웃</button>
     </Container>
   );
-}
+};
 
 export default Profile;
