@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Container, Title } from "../style/Style";
-import Header from "../components/Header";
-import Input from "../components/Form/Input";
-import { authService } from "../services/AuthService";
+import { Container, Title } from "../style/Style.jsx";
+import Header from "../components/Header.jsx";
+import Input from "../components/Form/Input.jsx";
+import { authService } from "../services/AuthService.tsx";
 
 function SignIn() {
   const [formData, setFormData] = useState({
