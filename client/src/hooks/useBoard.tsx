@@ -3,13 +3,18 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5000/api";
 
+interface Board {
+  title: string;
+  context: string;
+}
+
 const useBoard = () => {
-  const [board, setBoard] = useState([]);
-  const [title, setTitle] = useState("");
-  const [context, setContext] = useState("");
+  const [board, setBoard] = useState<Board[]>([]);
+  const [title, setTitle] = useState<string>("");
+  const [context, setContext] = useState<string>("");
 
   const fetchBoard = useCallback(async () => {
-    const response = await axios.get(`${API_URL}/board`);
+    const response = await axios.get<Board[]>(`${API_URL}/board`);
     setBoard(response.data);
   }, []);
 
@@ -17,18 +22,18 @@ const useBoard = () => {
     fetchBoard();
   }, [fetchBoard]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!title.trim() || !context.trim()) {
       return;
     }
-    await axios.post(`${API_URL}/add`, { title, context });
+    await axios.post<Board>(`${API_URL}/add`, { title, context });
     setTitle("");
     setContext("");
     fetchBoard();
   };
 
-  const handleDelete = async (title) => {
+  const handleDelete = async (title: string) => {
     await axios.delete(`${API_URL}/delete`, { data: { title } });
     fetchBoard();
   };
