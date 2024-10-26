@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, TableHeader, TableCell } from "./Style.tsx";
-import DeleteIcon from "../../assets/DeleteIcon";
-import HeartIcon from "../../assets/HeartIcon";
+import DeleteIcon from "../../assets/DeleteIcon.tsx";
+import HeartIcon from "../../assets/HeartIcon.tsx";
 
 interface Board {
   title: string;
