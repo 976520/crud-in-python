@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Container, Title } from "../style/Style.jsx";
-import Header from "../components/Header.jsx";
-import Input from "../components/Form/Input.jsx";
+import { Container, Title } from "../style/Style.js";
+import Header from "../components/Header.js";
+import Input from "../components/Form/Input.js";
 import { authService } from "../services/AuthService.tsx";
 
 function SignUp() {

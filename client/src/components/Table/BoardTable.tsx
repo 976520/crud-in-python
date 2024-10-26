@@ -3,16 +3,26 @@ import { Table, TableHeader, TableCell } from "./Style";
 import DeleteIcon from "../../assets/DeleteIcon";
 import HeartIcon from "../../assets/HeartIcon";
 
-const BoardTable = ({ board, onDelete }) => (
+interface Board {
+  title: string;
+  context: string;
+}
+
+interface BoardTableProps {
+  board: Board[];
+  onDelete: (title: string) => void;
+}
+
+const BoardTable: React.FC<BoardTableProps> = ({ board, onDelete }) => (
   <Table>
     <thead>
       <tr>
-        <TableHeader width="3%">No.</TableHeader>
-        <TableHeader width="15%">Writer</TableHeader>
-        <TableHeader width="15%">Title</TableHeader>
-        <TableHeader width="35%">Context</TableHeader>
-        <TableHeader width="3%">Del</TableHeader>
-        <TableHeader width="5%">Like</TableHeader>
+        <TableHeader>No.</TableHeader>
+        <TableHeader>Writer</TableHeader>
+        <TableHeader>Title</TableHeader>
+        <TableHeader>Context</TableHeader>
+        <TableHeader>Del</TableHeader>
+        <TableHeader>Like</TableHeader>
       </tr>
     </thead>
     <tbody>
@@ -20,9 +30,9 @@ const BoardTable = ({ board, onDelete }) => (
         <tr key={index}>
           <TableCell>{index + 1}</TableCell>
           <TableCell>{localStorage.getItem("user-id")}</TableCell>
-          <TableCell>{row[0]}</TableCell>
-          <TableCell>{row[1]}</TableCell>
-          <TableCell onClick={() => onDelete(row[0])} style={{ cursor: "pointer" }}>
+          <TableCell>{row.title}</TableCell>
+          <TableCell>{row.context}</TableCell>
+          <TableCell onClick={() => onDelete(row.title)} style={{ cursor: "pointer" }}>
             <DeleteIcon />
           </TableCell>
           <TableCell style={{ cursor: "pointer" }}>
