@@ -6,7 +6,7 @@ import { Title } from "../components/Title.tsx";
 import Header from "../components/Header.tsx";
 
 const Add: React.FC = () => {
-  const { title, setTitle, context, setContext, writer, setWriter, handleSubmit } = useBoard();
+  const { title, setTitle, context, setContext, setWriter, handleSubmit } = useBoard();
 
   useEffect(() => {
     const currentUser = localStorage.getItem("user-id");
