@@ -59,7 +59,7 @@ const SignIn: React.FC = () => {
       </form>
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       <br />
-      <button onClick={() => (window.location.href = "/sign-up")}>회원가입</button>
+      <button onClick={() => (window.location.href = "/signup")}>회원가입</button>
     </Container>
   );
 };
