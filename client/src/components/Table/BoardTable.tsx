@@ -12,10 +12,11 @@ interface Board {
 
 interface BoardTableProps {
   board: Board[];
-  onDelete: (title: string) => void;
+  onDelete: (title: string, writer: string) => void;
+  currentUser: string | null;
 }
 
-const BoardTable: React.FC<BoardTableProps> = ({ board, onDelete }) => (
+const BoardTable: React.FC<BoardTableProps> = ({ board, onDelete, currentUser }) => (
   <Table>
     <thead>
       <tr>
@@ -28,17 +29,17 @@ const BoardTable: React.FC<BoardTableProps> = ({ board, onDelete }) => (
       </tr>
     </thead>
     <tbody>
-      {/* board 배열을 순회하며 테이블 row 생성 */}
       {board.map((row, index) => (
         <tr key={index}>
-          {/* 테이블 셀에 데이터 바인딩 */}
           <TableCell>{index + 1}</TableCell>
           <TableCell>{row.writer}</TableCell>
           <TableCell>{row.title}</TableCell>
           <TableCell>{row.context}</TableCell>
-          {/* 삭제 아이콘 클릭 시 onDelete 함수 호출 */}
-          <TableCell onClick={() => onDelete(row.title)} style={{ cursor: "pointer" }}>
-            <DeleteIcon />
+          <TableCell
+            onClick={() => currentUser === row.writer && onDelete(row.title, row.writer)}
+            style={{ cursor: currentUser === row.writer ? "pointer" : "default" }}
+          >
+            {currentUser === row.writer && <DeleteIcon />}
           </TableCell>
           <TableCell style={{ cursor: "pointer" }}>
             <HeartIcon />

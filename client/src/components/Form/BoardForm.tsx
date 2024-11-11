@@ -1,18 +1,24 @@
 import React from "react";
-import TextArea from "./TextArea.tsx";
 import Input from "./Input.tsx";
 
-const BoardForm = ({ title, setTitle, context, setContext, handleSubmit }) => {
-  const isDisabled = !title.trim() || !context.trim();
+interface BoardFormProps {
+  title: string;
+  setTitle: (title: string) => void;
+  context: string;
+  setContext: (context: string) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
 
+const BoardForm: React.FC<BoardFormProps> = ({ title, setTitle, context, setContext, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <p>title</p>
-      <Input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <Input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
       <p>context</p>
-      <TextArea value={context} onChange={(e) => setContext(e.target.value)}></TextArea>
+      <Input type="text" value={context} onChange={(e) => setContext(e.target.value)} required />
+      <Input type="hidden" name="writer" value={localStorage.getItem("user-id") || ""} />
       <br />
-      <Input type="submit" value="submit" id="submit" disabled={isDisabled} />
+      <Input id="submit" type="submit" value="submit" />
     </form>
   );
 };

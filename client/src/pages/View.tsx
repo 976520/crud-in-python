@@ -7,12 +7,13 @@ import Header from "../components/Header.tsx";
 
 const View: React.FC = () => {
   const { board, handleDelete } = useBoard();
+  const currentUser = localStorage.getItem("user-id");
 
   return (
     <Container>
       <Header />
       <Title>게시물 조회</Title>
-      <BoardTable board={board} onDelete={handleDelete} />
+      <BoardTable board={board} onDelete={handleDelete} currentUser={currentUser} />
     </Container>
   );
 };

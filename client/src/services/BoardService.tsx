@@ -17,6 +17,6 @@ export const addBoard = async (title: string, context: string, writer: string): 
   await axios.post<Board>(`${API_URL}/add`, { title, context, writer });
 };
 
-export const deleteBoard = async (title: string): Promise<void> => {
-  await axios.delete(`${API_URL}/delete`, { data: { title } });
+export const deleteBoard = async (title: string, writer: string): Promise<void> => {
+  await axios.delete(`${API_URL}/delete`, { data: { title, writer } });
 };

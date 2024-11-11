@@ -31,8 +31,8 @@ const useBoard = () => {
     fetchBoards();
   };
 
-  const handleDelete = async (title: string) => {
-    await deleteBoard(title);
+  const handleDelete = async (title: string, writer: string) => {
+    await deleteBoard(title, writer);
     fetchBoards();
   };
 

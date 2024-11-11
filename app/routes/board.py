@@ -21,10 +21,11 @@ def add_board_entry():
 @board_bp.route('/api/delete', methods=['DELETE'])
 def delete_board_entry():
     title = request.json.get('title')
+    writer = request.json.get('writer')
     global board
     new_board = []
     for item in board:
-        if item['title'] != title:
+        if item['title'] != title or item['writer'] != writer:
             new_board.append(item)
     board = new_board
     return jsonify(success=True), 200
