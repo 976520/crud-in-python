@@ -1,7 +1,8 @@
 import React from "react";
 import useBoard from "../hooks/useBoard.tsx";
 import BoardTable from "../components/Table/BoardTable.tsx";
-import { Container, Title } from "../style/Style.tsx";
+import { Container } from "../components/Container.tsx";
+import { Title } from "../components/Title.tsx";
 import Header from "../components/Header.tsx";
 
 const View: React.FC = () => {

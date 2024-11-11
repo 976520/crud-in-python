@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Title } from "../style/Style.tsx";
+import { Container } from "../components/Container.tsx";
+import { Title } from "../components/Title.tsx";
 import Header from "../components/Header.tsx";
 
 const Profile: React.FC = () => {
@@ -8,13 +9,13 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("user-id")) {
-      navigate("/sign-in");
+      navigate("/signin");
     }
   }, [navigate]);
 
   const handleLogout = () => {
     localStorage.removeItem("user-id");
-    navigate("/sign-in");
+    navigate("/signin");
   };
 
   return (

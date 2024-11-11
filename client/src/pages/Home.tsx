@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Title } from "../style/Style.tsx";
+import { Container } from "../components/Container.tsx";
+import { Title } from "../components/Title.tsx";
 import Header from "../components/Header.tsx";
 
 const Home: React.FC = () => {
