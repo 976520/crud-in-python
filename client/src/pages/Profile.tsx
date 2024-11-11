@@ -9,13 +9,13 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("user-id")) {
-      navigate("/sign-in");
+      navigate("/signin");
     }
   }, [navigate]);
 
   const handleLogout = () => {
     localStorage.removeItem("user-id");
-    navigate("/sign-in");
+    navigate("/signin");
   };
 
   return (
